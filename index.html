@@ -423,6 +423,28 @@
       box-shadow: 0 1px 5px #d2d2d2; /* если хотите легкую тень */
       background: #fff; /* опционально */
     }
+
+    .advantages-flex {
+    display: flex;
+    gap: 44px;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+    @media (max-width: 800px) {
+      .advantages-flex {
+        flex-direction: column;
+        gap: 18px;
+      }
+      .future-img { max-width: 90vw; }
+    }
+    .future-img {
+      flex: 0 0 360px;
+      max-width: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     @media (max-width: 800px) {
     .problem-flex { flex-direction: column; gap: 18px;}
     .problem-img, .problem-content { max-width: 100%;}
@@ -464,6 +486,7 @@
       .header-btn {margin-left: 6px;}
       .projects-row {gap: 11px;}
     }
+    
   </style>
 </head>
 <body>
@@ -508,13 +531,13 @@
           <div class="problem-content">
             <div class="section-title">Зачем это нужно?</div>
             <div class="section-content">
-              <b>Сердечно-сосудистые заболевания</b> — основная причина смертности в мире.<br>
+              <b>Сердечно-сосудистые заболевания — основная причина смертности в мире.</b><br>
               Ранняя диагностика позволяет спасти тысячи жизней, но современная медицина не всегда даёт быстрые и доступные решения.<br>
               Ишемическая болезнь сердца (ИБС) по-прежнему занимает первое место среди причин смертности и долгосрочной потери трудоспособности при сердечно-сосудистых заболеваниях во всем мире 1. 
               Для эффективного скрининга ИБС крайне востребованы точные, простые в применении и экономичные методы. 
 
               <br>
-              <b>Наш подход:</b> применяем компьютерное зрение и ИИ для диагностики по доступным изображениям (лицо, глазное дно, мобильные устройства).
+              <b>Наш подход:</b> применяем компьютерное зрение и ИИ для диагностики по доступным изображениям. Выявляем признаки, оцениваем риск, направляем и соправаждаем пацинта с постоперационным контролем.
             </div>
           </div>
           <div class="problem-img">
@@ -542,7 +565,7 @@
           <div class="project-title">Определение ИБС по фото глазного дна</div>
           <div class="project-desc">
             Компьютерный анализ изображений глазного дна для неинвазивной диагностики сердечно-сосудистых рисков.<br>
-            <span style="color:#7788e0;">Планируется расширение базы данных и внедрение в клиники</span>
+            <span style="color:#7788e0;">Планируется расширение базы данных и публикация результатов</span>
           </div>
         </div>
         <div class="project-card">
@@ -558,7 +581,8 @@
       </div>
     </section>
     <section class="section" id="advantages">
-        <div class="section-title">Почему TensorLabs?</div>
+      <div class="section-title">Почему TensorLabs?</div>
+      <div class="advantages-flex">
         <div class="section-content">
           <ul>
             <li>Использование передовых технологий</li>
@@ -566,10 +590,13 @@
             <li>Опытная команда экспертов</li>
             <li>Партнёрство с ведущими клиниками России</li>
             <li>Интеграция с носимыми устройствами</li>
-            
           </ul>
         </div>
-      </section>
+        <div class="future-img">
+          <img src="logo_icon.png" style="width:100%;height:100%;object-fit:contain;"/>
+        </div>
+      </div>
+    </section>
       
       <section class="section" id="future">
     <section class="section" id="future">
@@ -625,7 +652,7 @@
     <section class="section" id="contacts">
       <div class="section-title">Контакты</div>
       <div class="section-content">
-        E-mail: info@tensorlabs.ai<br>
+        E-mail: neurofacies@gmail.com<br>
         <br>
         
       </div>
