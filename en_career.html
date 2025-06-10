@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TensorLabs — AI for Healthcare</title>
+  <title>Careers — TensorLabs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root {
+        :root {
       --main-bg: #f7f8fb;
       --header-bg: #fff;
       --footer-bg: #f2f2f6;
@@ -130,15 +130,15 @@
     }
     .hero-img {
       width: 340px; max-width: 98vw;
-      height: 250px; background: #ffffff;
+      height: 250px; background: #e8eafb;
       border-radius: var(--radius);
       display: flex;
       align-items: center; justify-content: center;
-      color: #ffffff;
+      color: #b5b9dc;
       font-size: 2em;
       font-weight: 600;
-      box-shadow: 0 6px 32px rgba(255, 255, 255, 0.07);
-      /*border: 2px dashed #dbe0fa;*/
+      box-shadow: 0 6px 32px rgba(88,100,200,0.07);
+      border: 2px dashed #dbe0fa;
       text-align: center;
       padding: 18px;
     }
@@ -188,7 +188,7 @@
     .project-img {
       width: 100%;
       height: 120px;
-      background: #ffffff;
+      background: #dde1f7;
       border-radius: 9px;
       margin-bottom: 16px;
       display: flex; align-items: center; justify-content: center;
@@ -276,7 +276,7 @@
     border-radius: 16px;
     box-shadow: 0 6px 32px rgba(88,100,200,0.08);
     object-fit: cover;
-    background: #fbfbfb;
+    background: #e8eafb;
     }
     .future-content {
     flex: 1 1 400px;
@@ -335,8 +335,8 @@
     background: #fff;
     padding: 36px 0 24px 0;
     margin: 40px 0 0 0;
-    border-top: 6px solid #e6e9f3;
-    border-bottom: 6px solid #e6e9f3;
+    border-top: 4px solid #e6e9f3;
+    border-bottom: 4px solid #e6e9f3;
     }
     .partners-title {
     text-align: center;
@@ -359,7 +359,7 @@
     animation: carousel-scroll 17s linear infinite;
     }
     .carousel-track img {
-    height: 80px;
+    height: 40px;
     opacity: 0.85;
     transition: opacity .2s;
     filter: grayscale(0.7);
@@ -398,6 +398,27 @@
     align-items: center;
     justify-content: center;
     }
+    .vacancy-flex {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 36px;
+    }
+    .vacancy-content-wrap {
+      flex: 1 1 350px;
+    }
+    .vacancy-img {
+      width: 300px;
+      height: 300px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 4px 18px rgba(88,100,200,0.09);
+      background: #f0f2fb;
+    }
+    @media (max-width: 900px) {
+      .vacancy-flex { flex-direction: column; align-items: center; }
+      .vacancy-img { margin-top: 120px; }
+    }
     .problem-img img {
     width: 100%;
     height: auto;
@@ -407,64 +428,15 @@
     object-fit: cover;
     background: #e8eafb;
     }
-    .logo {
-    display: flex;
-    align-items: center;
-    font-size: 1.7em;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 2px;
-    
-    }
     .logo-icon {
-      width: 38px;  
+      width: 38px;  /* или размер, который вам нужен */
       height: 38px;
       margin-right: 12px;
-      border-radius: 9px; 
-      box-shadow: 0 1px 5px #d2d2d2; 
-      background: #fff; 
+      border-radius: 9px; /* если нужна скруглённость */
+      box-shadow: 0 1px 5px #d2d2d2; /* если хотите легкую тень */
+      background: #fff; /* опционально */
     }
 
-    .advantages-flex {
-    display: flex;
-    gap: 44px;
-    align-items: center;
-    justify-content: space-between;
-    }
-    @media (max-width: 800px) {
-    .section {
-      padding: 20px 8px 14px 8px;
-    }
-    .projects-row {
-      flex-direction: column;
-      gap: 15px;
-    }
-    .project-card {
-      max-width: 99vw;
-      min-width: 0;
-    }
-    .advantages-flex {
-      flex-direction: column;
-      gap: 18px;
-    }
-    .future-img, .future-content {
-      max-width: 100%;
-    }
-    }
-    @media (max-width: 800px) {
-      .advantages-flex {
-        flex-direction: column;
-        gap: 18px;
-      }
-      .future-img { max-width: 90vw; }
-    }
-    .future-img {
-      flex: 0 0 360px;
-      max-width: 500px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
     @media (max-width: 800px) {
     .problem-flex { flex-direction: column; gap: 18px;}
     .problem-img, .problem-content { max-width: 100%;}
@@ -478,7 +450,7 @@
     0% { transform: translateX(0);}
     100% { transform: translateX(-50%);}
     }
-    @media (max-width:800px){
+    @media (max-width:600px){
     .carousel-track {gap: 22px;}
     .partners-section {padding:18px 0 11px 0;}
     .partners-title {font-size:1.09em;}
@@ -506,10 +478,24 @@
       .header-btn {margin-left: 6px;}
       .projects-row {gap: 11px;}
     }
-    
+    .section { background: #fff; margin: 48px auto; border-radius: 16px; max-width: 1120px;
+      box-shadow: 0 4px 28px rgba(100,120,200,0.05); padding: 44px 36px 34px 36px;
+      border-top: 4px solid #e6e9f3; border-bottom: 4px solid #e6e9f3;}
+    .vacancy-title {
+      font-size: 1.15em; font-weight: 700; color: #1e325f; margin-top: 36px; margin-bottom: 10px;
+    }
+    .vacancy-content {
+      font-size: 1.08em; color: #4e5870; margin-bottom: 12px; line-height: 1.55;
+    }
+    @media (max-width:700px){
+      .section {padding: 20px 7px 12px 7px;}
+      .vacancy-title {font-size:1.01em;}
+      .vacancy-content {font-size:1em;}
+    }
   </style>
 </head>
 <body>
+
   <header>
     <a href="index.html" class="logo" style="text-decoration:none;">
       <img src="logo_icon.png" alt="Logo" class="logo-icon" />
@@ -523,176 +509,114 @@
       <a href="en_career.html">Careers</a>
     </nav>
     <div class="lang-switch">
-        <a href="index.html" class="lang-link">RU</a>
+        <a href="career.html" class="lang-link">RU</a>
         <span class="lang-divider">|</span>
-        <a href="en.html" class="lang-link">EN</a>
+        <a href="en_career.html" class="lang-link">EN</a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-title">
-          Multidisciplinary team of researchers<br>— building AI products for healthcare
-        </div>
-        <div class="hero-desc" style="text-align:justify;">
-          <b>TensorLabs</b> is a startup uniting experts in medicine, AI, and engineering to create technologies that truly improve people's lives.<br>
-          Our goal is to turn recent scientific breakthroughs into practical solutions for early diagnosis and health monitoring.
-        </div>
+    <section class="section" id="careers">
+      <div class="section-title">Careers & Open Positions</div>
+      <div class="section-content" style="text-align:justify;">
+        At <b>TensorLabs</b> and in the <b>LAMBDA Lab, HSE University</b>, we are looking for talented specialists eager to work at the intersection of AI, medicine, and fundamental research.<br><br>
+        <b>Collaboration options:</b>
+        <ul>
+          <li>Work in the TensorLabs startup team (developing and implementing applied AI solutions for healthcare)</li>
+          <li>Research, internship, and PhD positions in the HSE laboratory under the supervision of Mikhail Lazarev</li>
+        </ul>
       </div>
-      <div class="hero-img-wrap">
-        <img src="Abstract3.png" alt="AI in Medicine" class="hero-img" style="object-fit:cover;width:100%;height:100%;">
+      <div class="section-content" style="text-align:justify;">
+        Currently, open positions are available in the <b>LAMBDA Lab, HSE University</b>, but we are always looking for talents who share our vision and goals. If there are no open positions at TensorLabs, we still recommend emailing us your CV or considering research opportunities at HSE.
+        <div>
+          Learn more about the HSE lab here — <a href="https://cs.hse.ru/iai/lambda/" target="_blank">LAMBDA</a>
+        </div>
       </div>
     </section>
-    <section class="section" id="problem">
-        <div class="problem-flex">
-          <div class="problem-content">
-            <div class="section-title">Why is this needed?</div>
-            <div class="section-content" style="text-align:justify;">
-              <b>Cardiovascular diseases are the leading cause of death worldwide.</b><br>
-              Early diagnosis can save thousands of lives, but modern medicine does not always offer fast and accessible solutions.<br>
-              Ischemic heart disease (IHD) remains the number one cause of death and long-term disability due to cardiovascular diseases globally.
-              Accurate, simple-to-use, and cost-effective screening methods for IHD are in high demand.
 
-              <br>
-              <b>Our approach:</b> we use computer vision and AI to diagnose based on accessible images. We detect features, assess risk, refer, and support the patient with postoperative monitoring.
-            </div>
-          </div>
-          <div class="problem-img">
-            <img src="stenoses.png" />
-          </div>
-        </div>
-      </section>
-    <section class="section" id="projects">
-      <div class="section-title">Current Projects</div>
-      <div class="projects-row">
-        <div class="project-card">
-          <div class="project-img">
-            <img src="Face_project.png" alt="Face photo example" style="width:150%;height:150%;object-fit:contain;">
-          </div>
-          <div class="project-title">IHD Detection from Face Photo</div>
-          <div class="project-desc">
-            Diagnosis of ischemic heart disease based on analysis of patient face images.<br>
-            <span style="color:#7788e0;">Data collection in progress, first results obtained, publications for scientific journals are being prepared</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-img">
-            <img src="Fundus_photo.png" style="width:150%;height:125%;object-fit:contain;">
-          </div>
-          <div class="project-title">IHD Detection from Fundus Photo</div>
-          <div class="project-desc">
-            Computer analysis of fundus images for non-invasive assessment of cardiovascular risk.<br>
-            <span style="color:#7788e0;">Database expansion and publication of results planned</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-img">
-            <img src="AI_asist.png" style="width:150%;height:150%;object-fit:contain;">
-          </div>
-          <div class="project-title">The Medical Device of the Future</div>
-          <div class="project-desc">
-            AI assistant for doctors, for postoperative health monitoring of patients.<br>
-            <span style="color:#7788e0;">Language model development in progress</span>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section" id="advantages">
-      <div class="section-title">Why TensorLabs?</div>
-      <div class="advantages-flex">
-        <div class="section-content">
+    <section class="section vacancy-flex">
+      <div class="vacancy-content-wrap">
+        <!-- Vacancy 1 -->
+        <div class="vacancy-title">ML/Data Scientist (Computer Vision Expert)</div>
+        <div class="vacancy-content" style="text-align:justify;">
+          <b>Where:</b> LAMBDA Lab, HSE<br>
+          <b>Responsibilities:</b>
           <ul>
-            <li>Cutting-edge technologies</li>
-            <li>Proprietary patents and publications</li>
-            <li>Experienced expert team</li>
-            <li>Partnership with leading clinics in Russia</li>
-            <li>Integration with wearable devices</li>
+            <li>Develop and train computer vision models for medical image analysis</li>
+            <li>Analyze and process medical data</li>
+            <li>Object reconstruction from its projections (X-ray)</li>
+            <li>Validation and implementation of algorithms in pilot projects with clinics</li>
           </ul>
+          <b>Requirements:</b>
+          <ul>
+            <li>Strong knowledge of Python, PyTorch or TensorFlow</li>
+            <li>Experience in CV tasks: segmentation, classification, regression</li>
+            <li>Portfolio/publications are welcome</li>
+          </ul>
+          <b>Conditions:</b> discussed individually.<br>
+          <ul>To apply, send an email to <b>neurofacies@gmail.com</b> or <b>mvlazarev@hse.ru</b></ul>
         </div>
-        <div class="future-img">
-          <img src="logo_icon.png" style="width:100%;height:100%;object-fit:contain;"/>
+      </div>  
+      <img src="Vacancy1.png" alt="ML vacancy" class="vacancy-img">
+    </section>
+    <section class="section vacancy-flex">
+      <div class="vacancy-content-wrap">
+        <!-- Vacancy 2 -->
+        <div class="vacancy-title">ML/DL Researcher</div>
+        <div class="vacancy-content" style="text-align:justify;">
+          <b>Where:</b> LAMBDA Lab, HSE<br>
+          <b>Responsibilities:</b>
+          <ul>
+            <li>Development, training, and analysis of large language models (LLMs)</li>
+            <li>Application of transformers for text analysis, atomic structure generation, multimodal data analysis</li>
+            <li>Participation in research projects, publications</li>
+          </ul>
+          <b>Requirements:</b>
+          <ul>
+            <li>Experience with transformers (PyTorch, Huggingface, etc.)</li>
+            <li>Machine learning skills, understanding of LLM architecture</li>
+            <li>Knowledge of generative model architectures including diffusion models is a plus</li>
+            <li>Basic understanding of atomic-level physics</li>
+            <li>Portfolio/publications are welcome</li>
+          </ul>
+          <b>Conditions:</b> discussed individually.<br>
+          <ul>To apply, send an email to <b>neurofacies@gmail.com</b> or <b>mvlazarev@hse.ru</b></ul>
         </div>
       </div>
+      <img src="Vacancy2.png" alt="ML vacancy" class="vacancy-img">
     </section>
-    <section class="section" id="future">
-      <div class="future-flex">
-        <div class="future-img">
-          <img src="Vision.png" alt="The Future of Medicine" style="width:90%;height:90%;object-fit:contain;"/>
-        </div>
-        <div class="future-content">
-          <div class="section-title">Vision for the Future</div>
-          <div class="section-content" style="text-align:justify;">
-            <b>TensorLabs</b> is developing new technologies to extend patients’ healthy lifespan and help doctors save time while improving quality.<br>
-            <ul>
-              <li>Real-time biomedical data collection and analysis</li>
-              <li>Doctor assistance for diagnosis</li>
-              <li>Security and privacy of user data</li>
-              <li>Patents and publications based on research</li>
-              <li>Products with no analogues</li>
-            </ul>
-            <b>We are looking for investment and strategic partners to accelerate development!</b>
-          </div>
+    <section class="section vacancy-flex">
+      <div class="vacancy-content-wrap">
+        <!-- Vacancy 3 -->
+        <div class="vacancy-title">ML/DL Researcher</div>
+        <div class="vacancy-content" style="text-align:justify;">
+          <b>Where:</b> LAMBDA Lab, HSE<br>
+          <b>Responsibilities:</b>
+          <ul>
+            <li>Research of physical object properties using GNNs</li>
+            <li>Development of new and adaptation of existing algorithms</li>
+            <li>Writing scientific articles</li>
+          </ul>
+          <b>Requirements:</b>
+          <ul>
+            <li>Knowledge of ML and DL methods and motivation for research work</li>
+            <li>Knowledge of graph theory, experience with PyTorch Geometric, DGL or equivalents is a plus</li>
+            <li>Knowledge of generative model architectures including diffusion models is a plus</li>
+            <li>Portfolio/publications are welcome</li>
+            <li>Basic understanding of atomic-level physics</li>
+          </ul>
+          <b>Conditions:</b> discussed individually.<br>
+          <ul>To apply, send an email to <b>neurofacies@gmail.com</b> or <b>mvlazarev@hse.ru</b></ul>
         </div>
       </div>
+      <img src="Vacancy3.png" alt="ML vacancy" class="vacancy-img">
     </section>
-    <section class="section" id="team">
-        <div class="section-title">TensorLabs Team</div>
-        <div class="team-row">
-          <div class="team-card main">
-            <div class="team-photo">
-              <img src="11_02_2023_4116.jpeg" alt="Mikhail Lazarev">
-            </div>
-            <div class="team-name">Mikhail Lazarev</div>
-            <div class="team-role">Founder & CEO<br>PhD, Associate Professor at HSE</div>
-          </div>
-          <div class="team-card">
-            <div class="team-photo">
-              <img src="Kopilov.png" alt="Philipp Kopylov">
-            </div>
-            <div class="team-name">Philipp Kopylov</div>
-            <div class="team-role">Medical Advisor<br>MD, Professor at Sechenov University</div>
-          </div>
-          <div class="team-card">
-            <div class="team-photo">
-              <img src="helimskiy.jpg" alt="Dmitry Khelimskiy">
-            </div>
-            <div class="team-name">Dmitry Khelimskiy</div>
-            <div class="team-role">Medical Advisor<br>PhD, practicing cardiac surgeon</div>
-          </div>
-        </div>
-    </section>
-    <section class="section" id="contacts">
-      <div class="section-title">Contacts</div>
-      <div class="section-content">
-        E-mail: neurofacies@gmail.com<br>
-        <br>
-      </div>
-    </section>
-  </main>
-  <section class="partners-section">
-    <div class="partners-title">Our Partners</div>
-    <div class="partners-carousel">
-      <div class="carousel-track">
-        <!-- Replace with real partner logos -->
-        <img src="partner1.png" alt="Partner 1">
-        <img src="partner2.jpeg" alt="Partner 2">
-        <img src="partner3.png" alt="Partner 3">
-        <img src="partner4.png" alt="Partner 4">
-        <img src="partner5.png" alt="Partner 5">
-        <img src="partner6.png" alt="Partner 6">
-        <img src="partner7.jpg" alt="Partner 7">
-        <!-- Duplicate for smooth infinite scroll -->
-        <img src="partner1.png" alt="Partner 1">
-        <img src="partner2.jpeg" alt="Partner 2">
-        <img src="partner3.png" alt="Partner 3">
-        <img src="partner4.png" alt="Partner 4">
-        <img src="partner5.png" alt="Partner 5">
-        <img src="partner6.png" alt="Partner 6">
-        <img src="partner7.jpg" alt="Partner 7">
-      </div>
+    
+    <div style="text-align:center; margin:36px 0 44px 0;">
+      <img src="2dmat.png" alt="Image description" style="max-width: 150vw; width: 580px; height: auto;">
     </div>
-  </section>
+  </main>
+  <!-- Footer as on the main page -->
   <div class="footer-wrap">
     <div class="footer-inner">
       <div class="footer-info">

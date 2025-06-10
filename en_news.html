@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TensorLabs — AI for Healthcare</title>
+  <title>News — TensorLabs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <style>
     :root {
       --main-bg: #f7f8fb;
@@ -138,7 +137,7 @@
       font-size: 2em;
       font-weight: 600;
       box-shadow: 0 6px 32px rgba(255, 255, 255, 0.07);
-      /*border: 2px dashed #dbe0fa;*/
+      border: 2px dashed #dbe0fa;
       text-align: center;
       padding: 18px;
     }
@@ -407,6 +406,37 @@
     object-fit: cover;
     background: #e8eafb;
     }
+    .center-wrap {
+    min-height: 60vh; /* чтобы был запас по высоте */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* центр по горизонтали */
+    justify-content: center; /* центр по вертикали */
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    }
+
+    .news-img {
+      max-width: 230px; /* уменьши размер, можешь 180-250px */
+      width: 90vw;
+      height: auto;
+      margin-bottom: 18px;
+      border-radius: 22px;
+      box-shadow: 0 4px 30px rgba(100,130,255,0.05);
+      background: #fff;
+    }
+    .dev-title {
+      font-size: 2em;
+      font-weight: 700;
+      color: var(--accent2);
+      margin-bottom: 10px;
+    }
+    .dev-desc {
+      font-size: 1.1em;
+      color: #6a718e;
+    }
+
     .logo {
     display: flex;
     align-items: center;
@@ -414,56 +444,15 @@
     font-weight: 700;
     color: var(--accent);
     letter-spacing: 2px;
-    
+    /* ... остальное как было ... */
     }
     .logo-icon {
-      width: 38px;  
+      width: 38px;  /* или размер, который вам нужен */
       height: 38px;
       margin-right: 12px;
-      border-radius: 9px; 
-      box-shadow: 0 1px 5px #d2d2d2; 
-      background: #fff; 
-    }
-
-    .advantages-flex {
-    display: flex;
-    gap: 44px;
-    align-items: center;
-    justify-content: space-between;
-    }
-    @media (max-width: 800px) {
-    .section {
-      padding: 20px 8px 14px 8px;
-    }
-    .projects-row {
-      flex-direction: column;
-      gap: 15px;
-    }
-    .project-card {
-      max-width: 99vw;
-      min-width: 0;
-    }
-    .advantages-flex {
-      flex-direction: column;
-      gap: 18px;
-    }
-    .future-img, .future-content {
-      max-width: 100%;
-    }
-    }
-    @media (max-width: 800px) {
-      .advantages-flex {
-        flex-direction: column;
-        gap: 18px;
-      }
-      .future-img { max-width: 90vw; }
-    }
-    .future-img {
-      flex: 0 0 360px;
-      max-width: 500px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border-radius: 9px; /* если нужна скруглённость */
+      box-shadow: 0 1px 5px #d2d2d2; /* если хотите легкую тень */
+      background: #fff; /* опционально */
     }
     @media (max-width: 800px) {
     .problem-flex { flex-direction: column; gap: 18px;}
@@ -506,193 +495,42 @@
       .header-btn {margin-left: 6px;}
       .projects-row {gap: 11px;}
     }
-    
   </style>
 </head>
 <body>
+  <!-- Header copied from main page -->
   <header>
     <a href="index.html" class="logo" style="text-decoration:none;">
       <img src="logo_icon.png" alt="Logo" class="logo-icon" />
       TensorLabs
     </a>
     <nav>
-      <a href="en.html">Home</a>
-      <a href="en_projects.html">Projects</a>
-      <a href="en_news.html">News</a>
-      <a href="en_about.html">About</a>
-      <a href="en_career.html">Careers</a>
+        <a href="en.html">Home</a>
+        <a href="en_projects.html">Projects</a>
+        <a href="en_news.html">News</a>
+        <a href="en_about.html">About</a>
+        <a href="en_career.html">Careers</a>
     </nav>
     <div class="lang-switch">
-        <a href="index.html" class="lang-link">RU</a>
+        <a href="news.html" class="lang-link">RU</a>
         <span class="lang-divider">|</span>
-        <a href="en.html" class="lang-link">EN</a>
+        <a href="en_news.html" class="lang-link">EN</a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-title">
-          Multidisciplinary team of researchers<br>— building AI products for healthcare
-        </div>
-        <div class="hero-desc" style="text-align:justify;">
-          <b>TensorLabs</b> is a startup uniting experts in medicine, AI, and engineering to create technologies that truly improve people's lives.<br>
-          Our goal is to turn recent scientific breakthroughs into practical solutions for early diagnosis and health monitoring.
-        </div>
-      </div>
-      <div class="hero-img-wrap">
-        <img src="Abstract3.png" alt="AI in Medicine" class="hero-img" style="object-fit:cover;width:100%;height:100%;">
-      </div>
-    </section>
-    <section class="section" id="problem">
-        <div class="problem-flex">
-          <div class="problem-content">
-            <div class="section-title">Why is this needed?</div>
-            <div class="section-content" style="text-align:justify;">
-              <b>Cardiovascular diseases are the leading cause of death worldwide.</b><br>
-              Early diagnosis can save thousands of lives, but modern medicine does not always offer fast and accessible solutions.<br>
-              Ischemic heart disease (IHD) remains the number one cause of death and long-term disability due to cardiovascular diseases globally.
-              Accurate, simple-to-use, and cost-effective screening methods for IHD are in high demand.
-
-              <br>
-              <b>Our approach:</b> we use computer vision and AI to diagnose based on accessible images. We detect features, assess risk, refer, and support the patient with postoperative monitoring.
-            </div>
-          </div>
-          <div class="problem-img">
-            <img src="stenoses.png" />
-          </div>
-        </div>
-      </section>
-    <section class="section" id="projects">
-      <div class="section-title">Current Projects</div>
-      <div class="projects-row">
-        <div class="project-card">
-          <div class="project-img">
-            <img src="Face_project.png" alt="Face photo example" style="width:150%;height:150%;object-fit:contain;">
-          </div>
-          <div class="project-title">IHD Detection from Face Photo</div>
-          <div class="project-desc">
-            Diagnosis of ischemic heart disease based on analysis of patient face images.<br>
-            <span style="color:#7788e0;">Data collection in progress, first results obtained, publications for scientific journals are being prepared</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-img">
-            <img src="Fundus_photo.png" style="width:150%;height:125%;object-fit:contain;">
-          </div>
-          <div class="project-title">IHD Detection from Fundus Photo</div>
-          <div class="project-desc">
-            Computer analysis of fundus images for non-invasive assessment of cardiovascular risk.<br>
-            <span style="color:#7788e0;">Database expansion and publication of results planned</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-img">
-            <img src="AI_asist.png" style="width:150%;height:150%;object-fit:contain;">
-          </div>
-          <div class="project-title">The Medical Device of the Future</div>
-          <div class="project-desc">
-            AI assistant for doctors, for postoperative health monitoring of patients.<br>
-            <span style="color:#7788e0;">Language model development in progress</span>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section" id="advantages">
-      <div class="section-title">Why TensorLabs?</div>
-      <div class="advantages-flex">
-        <div class="section-content">
-          <ul>
-            <li>Cutting-edge technologies</li>
-            <li>Proprietary patents and publications</li>
-            <li>Experienced expert team</li>
-            <li>Partnership with leading clinics in Russia</li>
-            <li>Integration with wearable devices</li>
-          </ul>
-        </div>
-        <div class="future-img">
-          <img src="logo_icon.png" style="width:100%;height:100%;object-fit:contain;"/>
-        </div>
-      </div>
-    </section>
-    <section class="section" id="future">
-      <div class="future-flex">
-        <div class="future-img">
-          <img src="Vision.png" alt="The Future of Medicine" style="width:90%;height:90%;object-fit:contain;"/>
-        </div>
-        <div class="future-content">
-          <div class="section-title">Vision for the Future</div>
-          <div class="section-content" style="text-align:justify;">
-            <b>TensorLabs</b> is developing new technologies to extend patients’ healthy lifespan and help doctors save time while improving quality.<br>
-            <ul>
-              <li>Real-time biomedical data collection and analysis</li>
-              <li>Doctor assistance for diagnosis</li>
-              <li>Security and privacy of user data</li>
-              <li>Patents and publications based on research</li>
-              <li>Products with no analogues</li>
-            </ul>
-            <b>We are looking for investment and strategic partners to accelerate development!</b>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section" id="team">
-        <div class="section-title">TensorLabs Team</div>
-        <div class="team-row">
-          <div class="team-card main">
-            <div class="team-photo">
-              <img src="11_02_2023_4116.jpeg" alt="Mikhail Lazarev">
-            </div>
-            <div class="team-name">Mikhail Lazarev</div>
-            <div class="team-role">Founder & CEO<br>PhD, Associate Professor at HSE</div>
-          </div>
-          <div class="team-card">
-            <div class="team-photo">
-              <img src="Kopilov.png" alt="Philipp Kopylov">
-            </div>
-            <div class="team-name">Philipp Kopylov</div>
-            <div class="team-role">Medical Advisor<br>MD, Professor at Sechenov University</div>
-          </div>
-          <div class="team-card">
-            <div class="team-photo">
-              <img src="helimskiy.jpg" alt="Dmitry Khelimskiy">
-            </div>
-            <div class="team-name">Dmitry Khelimskiy</div>
-            <div class="team-role">Medical Advisor<br>PhD, practicing cardiac surgeon</div>
-          </div>
-        </div>
-    </section>
-    <section class="section" id="contacts">
-      <div class="section-title">Contacts</div>
-      <div class="section-content">
-        E-mail: neurofacies@gmail.com<br>
-        <br>
-      </div>
-    </section>
-  </main>
-  <section class="partners-section">
-    <div class="partners-title">Our Partners</div>
-    <div class="partners-carousel">
-      <div class="carousel-track">
-        <!-- Replace with real partner logos -->
-        <img src="partner1.png" alt="Partner 1">
-        <img src="partner2.jpeg" alt="Partner 2">
-        <img src="partner3.png" alt="Partner 3">
-        <img src="partner4.png" alt="Partner 4">
-        <img src="partner5.png" alt="Partner 5">
-        <img src="partner6.png" alt="Partner 6">
-        <img src="partner7.jpg" alt="Partner 7">
-        <!-- Duplicate for smooth infinite scroll -->
-        <img src="partner1.png" alt="Partner 1">
-        <img src="partner2.jpeg" alt="Partner 2">
-        <img src="partner3.png" alt="Partner 3">
-        <img src="partner4.png" alt="Partner 4">
-        <img src="partner5.png" alt="Partner 5">
-        <img src="partner6.png" alt="Partner 6">
-        <img src="partner7.jpg" alt="Partner 7">
+    <div class="center-wrap">
+      <!-- Replace src with your own image if needed -->
+      <img class="news-img" src="Under_construction.png" alt="Section under construction">
+      <div class="dev-title">Section under construction</div>
+      <div class="dev-desc">
+        News, project updates, and company achievements will appear here soon.<br>
+        Stay tuned!
       </div>
     </div>
-  </section>
+  </main>
+
+  <!-- Footer copied from main page -->
   <div class="footer-wrap">
     <div class="footer-inner">
       <div class="footer-info">
