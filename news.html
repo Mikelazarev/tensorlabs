@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Новости — TensorLabs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --main-bg: #f7f8fb;
+      --header-bg: #fff;
+      --footer-bg: #f2f2f6;
+      --accent: #4874f7;
+      --accent2: #1e325f;
+      --section-bg: #fff;
+      --divider: #e6e9f3;
+      --radius: 16px;
+    }
+    html, body {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--main-bg);
+      color: #444a5a;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: var(--header-bg);
+      padding: 0 56px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 1px 12px rgba(36,62,128,0.07);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .logo {
+      font-size: 1.7em;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 2px;
+    }
+    nav {
+      display: flex; gap: 26px;
+    }
+    nav a {
+      color: #54586e;
+      text-decoration: none;
+      font-size: 1em;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 7px;
+      transition: background .18s, color .18s;
+    }
+    nav a:hover {
+      background: #eef2fd;
+      color: var(--accent);
+    }
+    .header-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 25px;
+      font-size: 1em;
+      font-weight: 600;
+      margin-left: 20px;
+      cursor: pointer;
+      transition: background .2s;
+      box-shadow: 0 2px 8px rgba(66,100,200,0.05);
+    }
+    .header-btn:hover { background: #3659e2;}
+    /* Hero section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 82px 24px 54px 24px;
+      background: var(--main-bg);
+    }
+    .hero-content {
+      flex: 1 1 380px;
+      max-width: 520px;
+      text-align: left;
+    }
+    .hero-title {
+      font-size: 2.25em;
+      font-weight: 800;
+      color: var(--accent2);
+      margin-bottom: 15px;
+      letter-spacing: 0.01em;
+      line-height: 1.13;
+    }
+    .hero-desc {
+      font-size: 1.17em;
+      color: #536080;
+      margin-bottom: 30px;
+      line-height: 1.45;
+    }
+    .hero-btns {
+      display: flex; gap: 16px;
+      margin-bottom: 16px;
+    }
+    .main-btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 13px 38px;
+      border-radius: 8px;
+      font-size: 1.08em;
+      border: none;
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(69,116,255,0.08);
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .main-btn.secondary {
+      background: #f2f2f6;
+      color: var(--accent2);
+      border: 1px solid #e0e4ef;
+    }
+    .main-btn:hover { background: #2959cb;}
+    .main-btn.secondary:hover { background: #e2e5f3; }
+    .hero-img-wrap {
+      flex: 1 1 330px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-img {
+      width: 340px; max-width: 98vw;
+      height: 250px; background: #ffffff;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center; justify-content: center;
+      color: #ffffff;
+      font-size: 2em;
+      font-weight: 600;
+      box-shadow: 0 6px 32px rgba(255, 255, 255, 0.07);
+      border: 2px dashed #dbe0fa;
+      text-align: center;
+      padding: 18px;
+    }
+    /* Section dividers */
+    .section {
+      background: var(--section-bg);
+      margin: 48px auto;
+      border-radius: var(--radius);
+      max-width: 1120px;
+      box-shadow: 0 4px 28px rgba(100,120,200,0.05);
+      padding: 44px 36px 34px 36px;
+      border-top: 4px solid var(--divider);
+      border-bottom: 4px solid var(--divider);
+    }
+    .section + .section { margin-top: 32px; }
+    .section-title {
+      font-size: 2.05em;
+      font-weight: 700;
+      color: var(--accent2);
+      margin-bottom: 26px;
+      text-align: left;
+    }
+    .section-content {
+      font-size: 1.14em;
+      color: #4e5870;
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+    /* Проекты карточки */
+    .projects-row {
+      display: flex; gap: 26px;
+      flex-wrap: wrap; justify-content: flex-start;
+      margin-top: 28px;
+    }
+    .project-card {
+      background: #f6f8fd;
+      border-radius: 13px;
+      box-shadow: 0 2px 18px rgba(60,80,160,0.07);
+      flex: 1 1 310px;
+      min-width: 270px; max-width: 350px;
+      padding: 30px 20px 18px 20px;
+      margin-bottom: 20px;
+      border: 1px solid #ebecf7;
+      transition: box-shadow .15s;
+      display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .project-img {
+      width: 100%;
+      height: 120px;
+      background: #ffffff;
+      border-radius: 9px;
+      margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center;
+      color: #a2b1e8;
+      font-size: 1.1em;
+    }
+    .project-title {
+      font-size: 1.11em;
+      font-weight: 600;
+      color: var(--accent2);
+      margin-bottom: 8px;
+    }
+    .project-desc { color: #6a718e; font-size: 1em; }
+    /* Footer */
+    .footer-wrap {
+    margin-top: 70px;
+    background: var(--footer-bg);
+    color: #8a92a6;
+    padding-top: 18px;
+    border-top: 2px solid #c2c8e2;
+    }
+    .footer-inner {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 28px;
+    min-height: 88px;
+    }
+    .footer-info {
+    font-size: 1.05em;
+    color: #4e5870;
+    max-width: 450px;
+    flex: 1 1 370px;
+    }
+    .footer-info a {
+    color: #8a92a6;
+    text-decoration: none;
+    margin-right: 8px;
+    transition: color .13s;
+    }
+    .footer-info a:hover { color: var(--accent);}
+    .footer-logo {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    min-width: 120px;
+    margin-left: auto;
+    }
+    .footer-logo img {
+    height: 100px;
+    max-width: 135px;
+    background:#fff; border-radius:9px; box-shadow:0 1px 5px #d2d2d2;
+    margin-bottom: 10px;
+    }
+    .footer-legal {
+    color: #8288a5;
+    font-size: .96em;
+    text-align: right;
+    margin: 0;
+    }
+    .future-flex {
+    display: flex;
+    gap: 44px;
+    align-items: flex-start;
+    justify-content: space-between;
+    }
+    .future-img {
+    flex: 0 0 330px;
+    max-width: 340px;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .future-img img {
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    border-radius: 16px;
+    box-shadow: 0 6px 32px rgba(88,100,200,0.08);
+    object-fit: cover;
+    background: #fbfbfb;
+    }
+    .future-content {
+    flex: 1 1 400px;
+    }
+    .team-row {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 16px;
+    }
+    .team-card {
+    background: #f7f8fd;
+    border-radius: 14px;
+    box-shadow: 0 2px 18px rgba(60,80,160,0.06);
+    padding: 28px 18px 20px 18px;
+    min-width: 200px;
+    max-width: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    .team-card.main {
+    border: 2px solid var(--accent);
+    box-shadow: 0 6px 32px rgba(69,116,255,0.08);
+    }
+    .team-photo {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 10px rgba(69,116,255,0.08);
+    background: #e8eafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    }
+    .team-name {
+    font-weight: 700;
+    font-size: 1.08em;
+    margin-bottom: 7px;
+    text-align: center;
+    }
+    .team-role {
+    font-size: 0.98em;
+    color: #6a718e;
+    text-align: center;
+    }
+    .partners-section {
+    background: #fff;
+    padding: 36px 0 24px 0;
+    margin: 40px 0 0 0;
+    border-top: 6px solid #e6e9f3;
+    border-bottom: 6px solid #e6e9f3;
+    }
+    .partners-title {
+    text-align: center;
+    font-size: 1.28em;
+    font-weight: 600;
+    color: #1e325f;
+    margin-bottom: 22px;
+    letter-spacing: .04em;
+    }
+    .partners-carousel {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1050px;
+    margin: auto;
+    }
+    .carousel-track {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+    animation: carousel-scroll 17s linear infinite;
+    }
+    .carousel-track img {
+    height: 80px;
+    opacity: 0.85;
+    transition: opacity .2s;
+    filter: grayscale(0.7);
+    }
+    .advantages-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 12px;
+    font-size: 1.12em;
+    }
+    .advantage-item {
+    background: #f6f7fc;
+    border-radius: 11px;
+    padding: 18px 20px;
+    font-weight: 500;
+    color: #35416a;
+    box-shadow: 0 1px 7px rgba(120,140,230,0.08);
+    display: flex; align-items: center; gap: 10px;
+    font-size: 1em;
+    }
+    .problem-flex {
+    display: flex;
+    gap: 44px;
+    align-items: flex-start;
+    justify-content: space-between;
+    }
+    .problem-content {
+    flex: 1 1 400px;
+    }
+    .problem-img {
+    flex: 0 0 330px;
+    max-width: 340px;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .problem-img img {
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    border-radius: 16px;
+    box-shadow: 0 6px 32px rgba(88,100,200,0.08);
+    object-fit: cover;
+    background: #e8eafb;
+    }
+    .center-wrap {
+    min-height: 60vh; /* чтобы был запас по высоте */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* центр по горизонтали */
+    justify-content: center; /* центр по вертикали */
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    }
+
+    .news-img {
+      max-width: 230px; /* уменьши размер, можешь 180-250px */
+      width: 90vw;
+      height: auto;
+      margin-bottom: 18px;
+      border-radius: 22px;
+      box-shadow: 0 4px 30px rgba(100,130,255,0.05);
+      background: #fff;
+    }
+    .dev-title {
+      font-size: 2em;
+      font-weight: 700;
+      color: var(--accent2);
+      margin-bottom: 10px;
+    }
+    .dev-desc {
+      font-size: 1.1em;
+      color: #6a718e;
+    }
+
+    .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.7em;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 2px;
+    /* ... остальное как было ... */
+    }
+    .logo-icon {
+      width: 38px;  /* или размер, который вам нужен */
+      height: 38px;
+      margin-right: 12px;
+      border-radius: 9px; /* если нужна скруглённость */
+      box-shadow: 0 1px 5px #d2d2d2; /* если хотите легкую тень */
+      background: #fff; /* опционально */
+    }
+    @media (max-width: 800px) {
+    .problem-flex { flex-direction: column; gap: 18px;}
+    .problem-img, .problem-content { max-width: 100%;}
+    .problem-img img { max-width: 100%; }
+    }
+    @media (max-width: 700px){
+    .advantages-grid { grid-template-columns: 1fr;}
+    }
+    .carousel-track img:hover { opacity: 1; filter: none;}
+    @keyframes carousel-scroll {
+    0% { transform: translateX(0);}
+    100% { transform: translateX(-50%);}
+    }
+    @media (max-width:800px){
+    .carousel-track {gap: 22px;}
+    .partners-section {padding:18px 0 11px 0;}
+    .partners-title {font-size:1.09em;}
+    }
+    @media (max-width: 800px) {
+    .team-row {gap: 15px; justify-content: center;}
+    .team-card {max-width: 99vw;}
+    }
+    @media (max-width: 800px) {
+    .future-flex { flex-direction: column; gap: 18px;}
+    .future-img, .future-content { max-width: 100%;}
+    .future-img img { max-width: 100%; }
+    }
+    @media (max-width: 700px) {
+    .footer-inner {flex-direction: column; align-items: flex-start; gap: 12px;}
+    .footer-logo {align-items: flex-start; margin-left:0; margin-top:12px;}
+    .footer-legal {text-align: left;}
+    }
+    @media (max-width: 600px) {
+      header { flex-direction: column; height: auto; gap: 13px; padding: 0 3px;}
+      .hero-title {font-size: 1.17em;}
+      .hero {padding: 28px 2vw 16px 2vw;}
+      .section {padding: 20px 7px 12px 7px;}
+      nav {gap: 10px;}
+      .header-btn {margin-left: 6px;}
+      .projects-row {gap: 11px;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Копируй шапку с главной страницы! -->
+  <header>
+    <a href="index.html" class="logo" style="text-decoration:none;">
+      <img src="logo_icon.png" alt="Логотип" class="logo-icon" />
+      TensorLabs
+    </a>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="projects.html">Проекты</a>
+      <a href="news.html">Новости</a>
+      <a href="about.html">О нас</a>
+      <a href="career.html">Карьера</a>
+    </nav>
+    <div class="lang-switch">
+        <a href="index.html" class="lang-link">RU</a>
+        <span class="lang-divider">|</span>
+        <a href="en.html" class="lang-link">EN</a>
+    </div>
+    <!--<button class="header-btn">Связаться</button>1 -->
+  </header>
+
+  <main>
+    <div class="center-wrap">
+      <!-- Можешь заменить src на свою картинку -->
+      <img class="news-img" src="Under_construction.png" alt="Раздел в разработке">
+      <div class="dev-title">Раздел в разработке</div>
+      <div class="dev-desc">
+        Здесь скоро появятся новости компании, проекты и наши успехи.<br>
+        Следите за обновлениями!
+      </div>
+    </div>
+  </main>
+
+  <!-- Копируй футер с главной страницы! -->
+  <div class="footer-wrap">
+    <div class="footer-inner">
+      <div class="footer-info">
+        <strong>ООО "Нейрофасис"</strong><br>
+        ИИ для здравоохранения.<br>
+        г. Москва, вн.тер.г. Муниципальный округ Пресненский, наб. Пресненская, д. 10, стр. 2, этаж 11, помещ. 97, ком. 2, офис 218<br>
+        ИНН 9703038029, ОГРН 1217700291148<br>
+        <br>
+      </div>
+      <div class="footer-logo">
+        <img src="Logo.png" alt="Логотип ООО">
+        <div class="footer-legal">
+          © 2025 ООО "Нейрофасис". Все права защищены.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

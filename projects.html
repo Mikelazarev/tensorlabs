@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Проекты — TensorLabs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css"> <!-- если стили вынесены отдельно -->
+  <style>
+    /* Если стили не в отдельном файле, добавь их сюда */
+    :root {
+      --main-bg: #f7f8fb;
+      --header-bg: #fff;
+      --footer-bg: #f2f2f6;
+      --accent: #4874f7;
+      --accent2: #1e325f;
+      --section-bg: #fff;
+      --divider: #e6e9f3;
+      --radius: 16px;
+    }
+    html, body {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--main-bg);
+      color: #444a5a;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: var(--header-bg);
+      padding: 0 56px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 1px 12px rgba(36,62,128,0.07);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .logo {
+      font-size: 1.7em;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 2px;
+    }
+    nav {
+      display: flex; gap: 26px;
+    }
+    nav a {
+      color: #54586e;
+      text-decoration: none;
+      font-size: 1em;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 7px;
+      transition: background .18s, color .18s;
+    }
+    nav a:hover {
+      background: #eef2fd;
+      color: var(--accent);
+    }
+    .header-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 25px;
+      font-size: 1em;
+      font-weight: 600;
+      margin-left: 20px;
+      cursor: pointer;
+      transition: background .2s;
+      box-shadow: 0 2px 8px rgba(66,100,200,0.05);
+    }
+    .header-btn:hover { background: #3659e2;}
+    /* Hero section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 82px 24px 54px 24px;
+      background: var(--main-bg);
+    }
+    .hero-content {
+      flex: 1 1 380px;
+      max-width: 520px;
+      text-align: left;
+    }
+    .hero-title {
+      font-size: 2.25em;
+      font-weight: 800;
+      color: var(--accent2);
+      margin-bottom: 15px;
+      letter-spacing: 0.01em;
+      line-height: 1.13;
+    }
+    .hero-desc {
+      font-size: 1.17em;
+      color: #536080;
+      margin-bottom: 30px;
+      line-height: 1.45;
+    }
+    .hero-btns {
+      display: flex; gap: 16px;
+      margin-bottom: 16px;
+    }
+    .main-btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 13px 38px;
+      border-radius: 8px;
+      font-size: 1.08em;
+      border: none;
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(69,116,255,0.08);
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .main-btn.secondary {
+      background: #f2f2f6;
+      color: var(--accent2);
+      border: 1px solid #e0e4ef;
+    }
+    .main-btn:hover { background: #2959cb;}
+    .main-btn.secondary:hover { background: #e2e5f3; }
+    .hero-img-wrap {
+      flex: 1 1 330px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-img {
+      width: 340px; max-width: 98vw;
+      height: 250px; background: #e8eafb;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center; justify-content: center;
+      color: #b5b9dc;
+      font-size: 2em;
+      font-weight: 600;
+      box-shadow: 0 6px 32px rgba(88,100,200,0.07);
+      border: 2px dashed #dbe0fa;
+      text-align: center;
+      padding: 18px;
+    }
+    /* Section dividers */
+    .section {
+      background: var(--section-bg);
+      margin: 48px auto;
+      border-radius: var(--radius);
+      max-width: 1120px;
+      box-shadow: 0 4px 28px rgba(100,120,200,0.05);
+      padding: 44px 36px 34px 36px;
+      border-top: 4px solid var(--divider);
+      border-bottom: 4px solid var(--divider);
+    }
+    .section + .section { margin-top: 32px; }
+    .section-title {
+      font-size: 2.05em;
+      font-weight: 700;
+      color: var(--accent2);
+      margin-bottom: 26px;
+      text-align: left;
+    }
+    .section-content {
+      font-size: 1.14em;
+      color: #4e5870;
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+    /* Проекты карточки */
+    .projects-row {
+      display: flex; gap: 26px;
+      flex-wrap: wrap; justify-content: flex-start;
+      margin-top: 28px;
+    }
+    .project-card {
+      background: #f6f8fd;
+      border-radius: 13px;
+      box-shadow: 0 2px 18px rgba(60,80,160,0.07);
+      flex: 1 1 310px;
+      min-width: 270px; max-width: 350px;
+      padding: 30px 20px 18px 20px;
+      margin-bottom: 20px;
+      border: 1px solid #ebecf7;
+      transition: box-shadow .15s;
+      display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .project-img {
+      width: 100%;
+      height: 120px;
+      background: #dde1f7;
+      border-radius: 9px;
+      margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center;
+      color: #a2b1e8;
+      font-size: 1.1em;
+    }
+    .project-title {
+      font-size: 1.11em;
+      font-weight: 600;
+      color: var(--accent2);
+      margin-bottom: 8px;
+    }
+    .project-desc { color: #6a718e; font-size: 1em; }
+    /* Footer */
+    .footer-wrap {
+    margin-top: 70px;
+    background: var(--footer-bg);
+    color: #8a92a6;
+    padding-top: 18px;
+    border-top: 2px solid #c2c8e2;
+    }
+    .footer-inner {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 28px;
+    min-height: 88px;
+    }
+    .footer-info {
+    font-size: 1.05em;
+    color: #4e5870;
+    max-width: 450px;
+    flex: 1 1 370px;
+    }
+    .footer-info a {
+    color: #8a92a6;
+    text-decoration: none;
+    margin-right: 8px;
+    transition: color .13s;
+    }
+    .footer-info a:hover { color: var(--accent);}
+    .footer-logo {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    min-width: 120px;
+    margin-left: auto;
+    }
+    .footer-logo img {
+    height: 100px;
+    max-width: 135px;
+    background:#fff; border-radius:9px; box-shadow:0 1px 5px #d2d2d2;
+    margin-bottom: 10px;
+    }
+    .footer-legal {
+    color: #8288a5;
+    font-size: .96em;
+    text-align: right;
+    margin: 0;
+    }
+    .future-flex {
+    display: flex;
+    gap: 44px;
+    align-items: flex-start;
+    justify-content: space-between;
+    }
+    .future-img {
+    flex: 0 0 330px;
+    max-width: 340px;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .future-img img {
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    border-radius: 16px;
+    box-shadow: 0 6px 32px rgba(88,100,200,0.08);
+    object-fit: cover;
+    background: #e8eafb;
+    }
+    .future-content {
+    flex: 1 1 400px;
+    }
+    .team-row {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 16px;
+    }
+    .team-card {
+    background: #f7f8fd;
+    border-radius: 14px;
+    box-shadow: 0 2px 18px rgba(60,80,160,0.06);
+    padding: 28px 18px 20px 18px;
+    min-width: 200px;
+    max-width: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    .team-card.main {
+    border: 2px solid var(--accent);
+    box-shadow: 0 6px 32px rgba(69,116,255,0.08);
+    }
+    .team-photo {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 10px rgba(69,116,255,0.08);
+    background: #e8eafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    }
+    .team-name {
+    font-weight: 700;
+    font-size: 1.08em;
+    margin-bottom: 7px;
+    text-align: center;
+    }
+    .team-role {
+    font-size: 0.98em;
+    color: #6a718e;
+    text-align: center;
+    }
+    .partners-section {
+    background: #fff;
+    padding: 36px 0 24px 0;
+    margin: 40px 0 0 0;
+    border-top: 4px solid #e6e9f3;
+    border-bottom: 4px solid #e6e9f3;
+    }
+    .partners-title {
+    text-align: center;
+    font-size: 1.28em;
+    font-weight: 600;
+    color: #1e325f;
+    margin-bottom: 22px;
+    letter-spacing: .04em;
+    }
+    .partners-carousel {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1050px;
+    margin: auto;
+    }
+    .carousel-track {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+    animation: carousel-scroll 17s linear infinite;
+    }
+    .carousel-track img {
+    height: 40px;
+    opacity: 0.85;
+    transition: opacity .2s;
+    filter: grayscale(0.7);
+    }
+    .advantages-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 12px;
+    font-size: 1.12em;
+    }
+    .advantage-item {
+    background: #f6f7fc;
+    border-radius: 11px;
+    padding: 18px 20px;
+    font-weight: 500;
+    color: #35416a;
+    box-shadow: 0 1px 7px rgba(120,140,230,0.08);
+    display: flex; align-items: center; gap: 10px;
+    font-size: 1em;
+    }
+    .problem-flex {
+    display: flex;
+    gap: 44px;
+    align-items: flex-start;
+    justify-content: space-between;
+    }
+    .problem-content {
+    flex: 1 1 400px;
+    }
+    .problem-img {
+    flex: 0 0 330px;
+    max-width: 340px;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .problem-img img {
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    border-radius: 16px;
+    box-shadow: 0 6px 32px rgba(88,100,200,0.08);
+    object-fit: cover;
+    background: #e8eafb;
+    }
+    .logo-icon {
+      width: 38px;  /* или размер, который вам нужен */
+      height: 38px;
+      margin-right: 12px;
+      border-radius: 9px; /* если нужна скруглённость */
+      box-shadow: 0 1px 5px #d2d2d2; /* если хотите легкую тень */
+      background: #fff; /* опционально */
+    }
+    @media (max-width: 800px) {
+    .problem-flex { flex-direction: column; gap: 18px;}
+    .problem-img, .problem-content { max-width: 100%;}
+    .problem-img img { max-width: 100%; }
+    }
+    @media (max-width: 700px){
+    .advantages-grid { grid-template-columns: 1fr;}
+    }
+    .carousel-track img:hover { opacity: 1; filter: none;}
+    @keyframes carousel-scroll {
+    0% { transform: translateX(0);}
+    100% { transform: translateX(-50%);}
+    }
+    @media (max-width:600px){
+    .carousel-track {gap: 22px;}
+    .partners-section {padding:18px 0 11px 0;}
+    .partners-title {font-size:1.09em;}
+    }
+    @media (max-width: 800px) {
+    .team-row {gap: 15px; justify-content: center;}
+    .team-card {max-width: 99vw;}
+    }
+    @media (max-width: 800px) {
+    .future-flex { flex-direction: column; gap: 18px;}
+    .future-img, .future-content { max-width: 100%;}
+    .future-img img { max-width: 100%; }
+    }
+    @media (max-width: 700px) {
+    .footer-inner {flex-direction: column; align-items: flex-start; gap: 12px;}
+    .footer-logo {align-items: flex-start; margin-left:0; margin-top:12px;}
+    .footer-legal {text-align: left;}
+    }
+    @media (max-width: 600px) {
+      header { flex-direction: column; height: auto; gap: 13px; padding: 0 3px;}
+      .hero-title {font-size: 1.17em;}
+      .hero {padding: 28px 2vw 16px 2vw;}
+      .section {padding: 20px 7px 12px 7px;}
+      nav {gap: 10px;}
+      .header-btn {margin-left: 6px;}
+      .projects-row {gap: 11px;}
+    }
+    /* Дополнительные стили для проектов */
+    .project-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 44px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 28px rgba(100,120,200,0.05);
+      margin-bottom: 44px;
+      padding: 44px 36px 34px 36px;
+      border-top: 4px solid #e6e9f3;
+      border-bottom: 4px solid #e6e9f3;
+      flex-wrap: wrap;
+    }
+    .project-block.reverse { flex-direction: row-reverse; }
+    .project-block-img {
+      flex: 0 0 330px;
+      max-width: 340px;
+      min-width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .project-block-img img {
+      width: 100%;
+      max-height: 300px;
+      border-radius: 13px;
+      box-shadow: 0 6px 32px rgba(88,100,200,0.08);
+      object-fit: cover;
+      background: #e8eafb;
+    }
+    .project-block-content {
+      flex: 1 1 400px;
+      min-width: 250px;
+      margin-bottom: 12px;
+    }
+    .project-block-title {
+      font-size: 1.43em;
+      font-weight: 700;
+      color: #1e325f;
+      margin-bottom: 15px;
+    }
+    .project-block-desc {
+      font-size: 1.13em;
+      color: #4e5870;
+      margin-bottom: 15px;
+      line-height: 1.52;
+    }
+    .project-block-refs {
+      margin-top: 16px;
+      font-size: 0.99em;
+      color: #6a718e;
+    }
+    .project-block-refs li {margin-bottom: 5px;}
+    @media (max-width: 900px){
+      .project-block, .project-block.reverse {
+        flex-direction: column;
+        gap: 18px;
+        padding: 24px 8px 16px 8px;
+      }
+      .project-block-img, .project-block-content { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка, как на главной -->
+  <header>
+    <a href="index.html" class="logo" style="text-decoration:none;">
+      <img src="logo_icon.png" alt="Логотип" class="logo-icon" />
+      TensorLabs
+    </a>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="projects.html">Проекты</a>
+      <a href="news.html">Новости</a>
+      <a href="about.html">О нас</a>
+      <a href="career.html">Карьера</a>
+    </nav>
+    <div class="lang-switch">
+        <a href="index.html" class="lang-link">RU</a>
+        <span class="lang-divider">|</span>
+        <a href="en.html" class="lang-link">EN</a>
+    </div>
+    <!--<button class="header-btn">Связаться</button>1 -->
+  </header>
+  <main>
+    <section class="section">
+      <div class="section-title">Наши проекты</div>
+
+      <!-- Проект 1 -->
+      <div class="project-block">
+        <div class="project-block-img">
+          <img src="Face_project.png" alt="ИБС по фото лица">
+        </div>
+        <div class="project-block-content">
+          <div class="project-block-title">Диагностика ИБС по фотографии лица</div>
+          <div class="project-block-desc">
+            
+            Помимо распространённых прогностических моделей, построенных на традиционных клинических факторах риска [1–2], некоторые внешние черты лица также оказались связаны с повышенной вероятностью развития ИБС, что открывает новые возможности для скрининга данной патологии [3]. 
+            Например, такие признаки, как облысение, седина, морщины на лице, складка мочки уха, ксантелазмы и дуга роговицы были ассоциированы с более высоким риском ИБС и ухудшением состояния сердечно-сосудистой системы【4–6】. 
+            Ряд исследований также продемонстрировал, что подобные особенности внешности могут быть полезны для выявления ИБС и даже повышать точность традиционных моделей прогноза.
+            Недавно подобное исследования были проведены в китае и показали впечатлющие результаты. [7]
+            Наша цель: Разработка алгоритма для выявления риска ишемической болезни сердца на основании анализа фото лица пациента.<br>
+            Особенности: клиническое тестирование, открытые публикации, масштабируемая архитектура.
+          </div>
+          <div class="project-block-refs">
+            <b>Литература:</b>
+            <ul>
+              <li>[1].Peter WF, Ralph BD, Daniel L, Belanger AM, Silbershatz H, Kannel WB. Prediction of coronary heart disease using risk factor categories. <i>Circulation</i>, 1998.</li>
+              <li>[2].Almeida J, Fonseca P, Dias T, Ladeiras-Lopes R, Bettencourt N, Ribeiro J, Gama V. Comparison of coronary artery disease consortium 1 and 2 scores and Duke clinical score to predict obstructive coronary disease by invasive coronary angiography. <i>Clin Cardiol </i>, 2016.</li>
+              <li>[3].Christoffersen M, Tybjærg-Hansen A. Visible aging signs as risk markers for ischemic heart disease: epidemiology, pathogenesis and clinical implications.  <i>Ageing Res Rev</i>, 2016.</li>
+              <li>[4].Christoffersen M, Frikke-Schmidt R, Schnohr P, Jensen GB, Nordestgaard BG, Tybjærg-Hansen A. Visible age-related signs and risk of ischemic heart disease in the general population a prospective cohort study. <i>Circulation  </i>, 2014.</li>
+              <li>[5].Schnohr P, Lange P, Nyboe J, Appleyard M, Jensen G. Gray hair, baldness, and wrinkles in relation to myocardial infarction: the Copenhagen city heart study.<i>Am Heart J </i>, 1995.</li>
+              <li>[6].Ang M, Wong W, Park J, Wu R, Lavanya R, Zheng Y, Cajucom-Uy H, Tai ES, Wong TY. Corneal arcus is a sign of cardiovascular disease, even in low-risk persons. <i>Am J Ophthalmol  </i>, 2011.</li>
+              <li>[7].Wang Y, Mao LH, Jia EZ, Li ZY, Ding XQ, Ge PC, Liu Z, Zhu TB, Wang LS, Li CJ, Ma WZ, Yang ZJ. Relationship between diagonal earlobe creases and coronary artery disease as determined via angiography. <i> BMJ Open</i>, 2016.</li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Проект 2 (чередуем стороны) -->
+      <div class="project-block reverse">
+        <div class="project-block-img">
+          <img src="Fundus_photo.png" alt="ИИ для анализа глазного дна">
+        </div>
+        <div class="project-block-content">
+          <div class="project-block-title">ИИ для анализа глазного дна</div>
+          <div class="project-block-desc">
+            Изучение состояния сосудов сетчатки глаза давно используется врачами для оценки риска сердечно-сосудистых заболеваний (ССЗ), поскольку изменения в сосудах сетчатки, например, сужение артериол, отражают патологии в других сосудистых областях организма, включая мозг и сердце[1-2]. 
+            С развитием цифровой офтальмологии и автоматизированных методов анализа стало возможным более точно и объективно измерять калибр сосудов, что позволило выявить их тесную связь с традиционными факторами риска ССЗ и даже предсказывать будущие неблагоприятные события, такие как инфаркт или инсульт[1-2].
+            Использование глубокого обучения для анализа фотографий глазного дна уже доказало свою эффективность в выявлении ряда заболеваний [3][4]. 
+            Такой подход обеспечивает быстрый, недорогой и воспроизводимый способ скрининга, что делает его весьма перспективным для массовых исследований и клинического применения. 
+          </div>
+          <div class="project-block-refs">
+            <b>Литература:</b>
+            <ul>
+              <li>[1].Wong, T. Y. et al. Retinal arteriolar narrowing and risk of coronary heart disease in men and women. The atherosclerosis risk in communities study. <i> JAMA</i>, 2002.</li>
+              <li>[2].Wang, S. B. et al. A spectrum of retinal vasculature measures and coronary artery disease. <i>Atherosclerosis</i>, 2018.</li>
+              <li>[3].Liew, G., Wang, J. J., Mitchell, P. & Wong, T. Y. Retinal vascular imaging: a new tool in microvascular disease research. <i>Circ. Cardiovasc. Imaging </i>, 2008.</li>
+              <li>[4].Cheung, C. Y., Ikram, M. K., Klein, R. & Wong, T. Y. The clinical implications of recent studies on the structure and function of the retinal microvasculature in diabetes. <i>Diabetologia</i>, 2015.</li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Проект 3 -->
+      <div class="project-block">
+        <div class="project-block-img">
+          <img src="AI_asist.png" alt="Data Science HSE">
+        </div>
+        <div class="project-block-content">
+          <div class="project-block-title">Цифровой ассистент поддержкий для врача</div>
+          <div class="project-block-desc">
+            Эффективный постоперационный контроль состояния пациентов — важнейший этап современного медицинского наблюдения. 
+            Своевременное выявление осложнений или негативной динамики позволяет быстро скорректировать лечение, предупредить тяжёлые последствия и снизить риск повторной госпитализации. 
+            Однако традиционный подход с регулярными телефонными обзвонами требует значительных временных ресурсов от врачей и среднего медицинского персонала, особенно при большом количестве пациентов.
+            Внедрение интеллектуального ассистента, способного самостоятельно обзванивать пациентов после операции, собирать ключевые параметры самочувствия и оперативно советовать обратиться за медицинской помощью при выявлении тревожных признаков, существенно облегчает работу врача. [1-2] 
+            Такой ИИ-ассистент может работать по чёткому протоколу, не забывает задать важные вопросы и способен выявить даже неочевидные риски с учётом истории болезни. 
+            Это позволяет врачу сосредоточиться на более сложных и критических случаях, повысить качество и персонализацию постоперационного контроля, а также экономит значительное количество времени, снижая нагрузку на медицинский персонал. [3]
+          </div>
+          <div class="project-block-refs">
+            <b>Литература:</b>
+            <ul>
+              <li>[1].Arun Babu и Sekhar Babu Boddu. «BERT-Based Medical Chatbot: Enhancing Healthcare Communication through Natural Language Understanding». <i>Exploratory Research in Clinical and Social Pharmacy</i>, 2024.</li>
+              <li>[2].Huang MY, Weng CS, Kuo HL, Su YC. Using a chatbot to reduce emergency department visits and unscheduled hospitalizations among patients with gynecologic malignancies during chemotherapy: A retrospective cohort study. <i>Heliyon</i>, 2023.</li>
+              <li>[3].Geoghegan L, Scarborough A, Wormald JCR, et al. Automated conversational agents for post-intervention follow-up: a systematic review.  <i>BJS Open</i>, 2021.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-title">Проекты в ВШЭ</div>
+      <!-- Проект 1 -->
+      <div class="project-block">
+        <div class="project-block-img">
+          <img src="AI_in_physics.png" alt="Data Science HSE">
+        </div>
+        <div class="project-block-content">
+          <div class="project-block-title">Физика материалов и молекул в ВШЭ</div>
+          <div class="project-block-desc">
+            Большие языковые модели показали впечатляющие способности в решении большого числа задач, но всё ещё есть проблемы в их использовании в естественно-научном направлении. [1]
+            В нашем проекте мы планируем - адаптировать и изучить поведение LLMs, для задач генерации структур на атомарном уровне для решения физико-химических задач. 
+            Одна из больших проблем в области генеративных моделей - это ограниченное количество данных, особенно экспериментальных [2]. Помимо проблемы недостатка данных, выбор метода представления материалов не однозначен и зависит от выбанного подхода. 
+            Выбирая представление в одном виде,  теряется часть информации об объекте, мы адаптируем и распространим методы текстового представления на низкоразмерные кристаллические структуры, а для молекулярных структур мы предлагаем использовать мультимодальный подход представления атомарных структур для улучшения качества генерации. 
+            Конечной целью нашей работы является разработка алгоритмов определения состава и геометрического строения кристаллов и молекул с учетом их практически важных макроскопических физических свойств. Работы в этом направлении ведутся [3-5] и было предложено много различных методов генерации, однако у многих есть существенные ограничения.
+            В случае кристаллов стоит уделить особое внимание оптическим свойствам и низкоразмерным структурам, таким как двумерные материалы. Они в данный момент не полностью изучены, а их число с каждым годом только растет.  
+            Двумерные материалы [6] являются очень перспективными с точки зрения приложений, из-за своих уникальных свойств и размеров, кроме этого низкоразмерные материалы на основе двумерных относительно легко сконструировать экспериментально.
+          </div>
+          <div class="project-block-refs">
+            <b>Литература:</b>
+            <ul>
+              <li>[1].Antunes, L.M., Butler, K.T. and Grau-Crespo, R., Crystal structure generation with autoregressive large language modeling.  <i>Nature Communications</i>, 2024.</li>
+              <li>[2].Al-Maeeni, A., Lazarev, M., Kazeev, N., Novoselov, K.S. and Ustyuzhanin, A., Review on automated 2D material design. <i>2D Materials</i>, 2024.</li>
+              <li>[3].Luo, X., Wang, Z., Gao, P., Lv, J., Wang, Y., Chen, C. and Ma, Y., Deep learning generative model for crystal structure prediction.<i>npj Computational Materials</i>, 2024.</li>
+              <li>[4].Jablonka, K.M., Schwaller, P., Ortega-Guerrero, A. and Smit, B., Leveraging large language models for predictive chemistry.<i>Nature Machine Intelligence</i>, 2024.</li>
+              <li>[5].Merchant, A., Batzner, S., Schoenholz, S.S., Aykol, M., Cheon, G. and Cubuk, E.D., Scaling deep learning for materials discovery. <i>Nature</i>, 2023.</li>
+              <li>[6].Glavin, N.R., Rao, R., Varshney, V., Bianco, E., Apte, A., Roy, A., Ringe, E. and Ajayan, P.M., 2020. Emerging applications of elemental 2D materials.  <i>Advanced Materials</i>, 2020.</li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Проект 2 -->
+      <div class="project-block">
+        <div class="project-block-img">
+          <img src="Digital_twin.png" alt="Data Science HSE">
+        </div>
+        <div class="project-block-content">
+          <div class="project-block-title">Прикладной ML в в ВШЭ</div>
+          <div class="project-block-desc">
+            Коронарная болезнь сердца (КБС) остаётся одной из ведущих причин смертности и заболеваемости во всём мире, в том числе в России, где на неё приходится более половины всех случаев сердечно-сосудистых заболеваний. 
+            Несмотря на успехи медицины, эффективная диагностика и лечение КБС остаются приоритетной задачей для здравоохранения. 
+            Современные методы визуализации, такие как коронарография, обеспечивают врачу огромный объём информации для принятия клинических решений, однако растущий поток данных требует значительных ресурсов для обработки и интерпретации. 
+            Кроме того, человеческий фактор может влиять на точность анализа, что приводит к дополнительным рискам и затратам.
+            Создание автоматизированных инструментов, способных быстро и точно анализировать результаты коронарографии и рассчитывать ключевые параметры кровотока в реальном времени, способно повысить качество диагностики и снизить нагрузку на врачей и систему здравоохранения. 
+            Реализация такого подхода становится возможной благодаря современным технологиям машинного обучения и искусственного интеллекта, которые уже зарекомендовали себя в обработке медицинских изображений. [1]
+            В проекте предполагается разработка многоэтапной платформы для всесторонней оценки состояния коронарных сосудов, включая сегментацию артерий [2], построение трёхмерных моделей [3-5], моделирование гемодинамики и автоматический расчёт риска ишемических событий на основе полученных данных. 
+            Такой комплексный подход позволит не только повысить точность диагностики КБС, но и оптимизировать затраты на лечение, что делает его весьма актуальным и практически реализуемым направлением для медицины будущего.
+          </div>
+          <div class="project-block-refs">
+            <b>Литература:</b>
+            <ul>
+              <li>[1].Khelimskii, D., Badoyan, A., Krymcov, O., Baranov, A., Manukian, S. and Lazarev, M., AI in interventional cardiology: Innovations and challenges. <i>Heliyon</i>, 2024.</li>
+              <li>[2].Iyer, K., Najarian, C.P., Fattah, A.A., Arthurs, C.J., Soroushmehr, S.R., Subban, V., Sankardas, M.A., Nadakuditi, R.R., Nallamothu, B.K. and Figueroa, C.A., AngioNet: a convolutional neural network for vessel segmentation in X-ray angiography. <i>Scientific Reports</i>, 2021.</li>
+              <li>[3].Iyer, K., Nallamothu, B.K., Figueroa, C.A. and Nadakuditi, R.R., A multi-stage neural network approach for coronary 3D reconstruction from uncalibrated X-ray angiography images. <i>Scientific Reports</i>, 2023.</li>
+              <li>[4].Galassi, F., Alkhalil, M., Lee, R., Martindale, P., Kharbanda, R.K., Channon, K.M., Grau, V. and Choudhury, R.P., 3D reconstruction of coronary arteries from 2D angiographic projections using non-uniform rational basis splines (NURBS) for accurate modelling of coronary stenoses.  <i>PloS one</i>, 2018.</li>
+              <li>[5].Maas, K.W., Ruijters, D., Vilanova, A. and Pezzotti, N., NeRF-CA: Dynamic Reconstruction of X-ray Coronary Angiography with Extremely Sparse-views. arXiv preprint arXiv:2408.16355. <i>Heliyon</i>, 2024.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-title">Доступны вакансии!</div>
+      <div class="section-content">
+        В назделе <b>Карьера</b> мы публикуем доступные вакансии по направлениям исследований.<br>
+        <br>
+        
+      </div>  
+    </section>  
+  </main>
+  <!-- Футер — тот же, что на главной -->
+  <div class="footer-wrap">
+    <div class="footer-inner">
+      <div class="footer-info">
+        <strong>ООО "Нейрофасис"</strong><br>
+        ИИ для здравоохранения.<br>
+        г. Москва, вн.тер.г. Муниципальный округ Пресненский, наб. Пресненская, д. 10, стр. 2, этаж 11, помещ. 97, ком. 2, офис 218<br>
+        ИНН 9703038029, ОГРН 1217700291148<br>
+        <br>
+      </div>
+      <div class="footer-logo">
+        <img src="Logo.png" alt="Логотип ООО">
+        <div class="footer-legal">
+          © 2025 ООО "Нейрофасис". Все права защищены.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
