@@ -495,15 +495,104 @@
       .header-btn {margin-left: 6px;}
       .projects-row {gap: 11px;}
     }
+        /* Новое: бургер-меню */
+        .burger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--accent2);
+    }
+
+    /* Обновим навигацию */
+    nav {
+      display: flex;
+      gap: 26px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: white;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        z-index: 100;
+      }
+      .burger {
+        display: block;
+      }
+    }
+
+    
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        gap: 32px;
+        padding: 28px 4vw;
+        text-align: center;
+      }
+      .hero-content {
+        text-align: center;
+      }
+    }
+
+    
+    .project-img img {
+      width: 100%;
+      height: auto;
+      max-height: 160px; 
+      object-fit: contain;
+      display: block;
+    }
+    .project-img {
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 9px;
+      padding: 10px;
+    }
+
+    /* Padding для текста */
+    @media (max-width: 600px) {
+      .section-content {
+        padding: 0 10px;
+      }
+    }
+    @media (max-width: 600px) {
+      .footer-logo img {
+        height: 60px !important;
+        max-width: 90px !important;
+        margin-bottom: 4px;
+      }
+      .footer-inner {
+        gap: 8px;
+        min-height: unset;
+        padding-bottom: 10px;
+      }
+      .footer-info {
+        font-size: 0.97em;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Копируй шапку с главной страницы! -->
+  
   <header>
     <a href="index.html" class="logo" style="text-decoration:none;">
       <img src="logo_icon.png" alt="Логотип" class="logo-icon" />
       TensorLabs
     </a>
+    <button class="burger" onclick="toggleMenu()">☰</button>
     <nav>
       <a href="index.html">Главная</a>
       <a href="projects.html">Проекты</a>
@@ -516,12 +605,12 @@
         <span class="lang-divider">|</span>
         <a href="en_news.html" class="lang-link">EN</a>
     </div>
-    <!--<button class="header-btn">Связаться</button>1 -->
+    
   </header>
 
   <main>
     <div class="center-wrap">
-      <!-- Можешь заменить src на свою картинку -->
+      
       <img class="news-img" src="Under_construction.png" alt="Раздел в разработке">
       <div class="dev-title">Раздел в разработке</div>
       <div class="dev-desc">
@@ -531,7 +620,7 @@
     </div>
   </main>
 
-  <!-- Копируй футер с главной страницы! -->
+  
   <div class="footer-wrap">
     <div class="footer-inner">
       <div class="footer-info">
@@ -549,5 +638,11 @@
       </div>
     </div>
   </div>
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('nav');
+      nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
+    }
+  </script>
 </body>
 </html>

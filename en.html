@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    :root {
+
+:root {
       --main-bg: #f7f8fb;
       --header-bg: #fff;
       --footer-bg: #f2f2f6;
@@ -142,7 +143,7 @@
       text-align: center;
       padding: 18px;
     }
-    /* Section dividers */
+    
     .section {
       background: var(--section-bg);
       margin: 48px auto;
@@ -167,7 +168,7 @@
       line-height: 1.55;
       margin-bottom: 18px;
     }
-    /* Проекты карточки */
+    
     .projects-row {
       display: flex; gap: 26px;
       flex-wrap: wrap; justify-content: flex-start;
@@ -506,6 +507,94 @@
       .header-btn {margin-left: 6px;}
       .projects-row {gap: 11px;}
     }
+    /* Новое: бургер-меню */
+    .burger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--accent2);
+    }
+
+    /* Обновим навигацию */
+    nav {
+      display: flex;
+      gap: 26px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: white;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        z-index: 100;
+      }
+      .burger {
+        display: block;
+      }
+    }
+
+    
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        gap: 32px;
+        padding: 28px 4vw;
+        text-align: center;
+      }
+      .hero-content {
+        text-align: center;
+      }
+    }
+
+    
+    .project-img img {
+      width: 100%;
+      height: auto;
+      max-height: 160px; 
+      object-fit: contain;
+      display: block;
+    }
+    .project-img {
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 9px;
+      padding: 10px;
+    }
+
+    /* Padding для текста */
+    @media (max-width: 600px) {
+      .section-content {
+        padding: 0 10px;
+      }
+    }
+    @media (max-width: 600px) {
+      .footer-logo img {
+        height: 60px !important;
+        max-width: 90px !important;
+        margin-bottom: 4px;
+      }
+      .footer-inner {
+        gap: 8px;
+        min-height: unset;
+        padding-bottom: 10px;
+      }
+      .footer-info {
+        font-size: 0.97em;
+      }
+    }
     
   </style>
 </head>
@@ -515,6 +604,7 @@
       <img src="logo_icon.png" alt="Logo" class="logo-icon" />
       TensorLabs
     </a>
+    <button class="burger" onclick="toggleMenu()">☰</button>
     <nav>
       <a href="en.html">Home</a>
       <a href="en_projects.html">Projects</a>
@@ -568,7 +658,7 @@
       <div class="projects-row">
         <div class="project-card">
           <div class="project-img">
-            <img src="Face_project.png" alt="Face photo example" style="width:150%;height:150%;object-fit:contain;">
+            <img src="Face_project.png" alt="Face photo example" >
           </div>
           <div class="project-title">IHD Detection from Face Photo</div>
           <div class="project-desc">
@@ -578,7 +668,7 @@
         </div>
         <div class="project-card">
           <div class="project-img">
-            <img src="Fundus_photo.png" style="width:150%;height:125%;object-fit:contain;">
+            <img src="Fundus_photo.png" alt="Fundus example" >
           </div>
           <div class="project-title">IHD Detection from Fundus Photo</div>
           <div class="project-desc">
@@ -588,7 +678,7 @@
         </div>
         <div class="project-card">
           <div class="project-img">
-            <img src="AI_asist.png" style="width:150%;height:150%;object-fit:contain;">
+            <img src="AI_asist.png" alt="AI_asist">
           </div>
           <div class="project-title">The Medical Device of the Future</div>
           <div class="project-desc">
@@ -710,5 +800,11 @@
       </div>
     </div>
   </div>
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('nav');
+      nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
+    }
+  </script>
 </body>
 </html>

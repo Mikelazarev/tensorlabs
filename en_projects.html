@@ -518,6 +518,94 @@
       }
       .project-block-img, .project-block-content { max-width: 100%; }
     }
+        /* Новое: бургер-меню */
+        .burger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--accent2);
+    }
+
+    /* Обновим навигацию */
+    nav {
+      display: flex;
+      gap: 26px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: white;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        z-index: 100;
+      }
+      .burger {
+        display: block;
+      }
+    }
+
+    
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        gap: 32px;
+        padding: 28px 4vw;
+        text-align: center;
+      }
+      .hero-content {
+        text-align: center;
+      }
+    }
+
+    
+    .project-img img {
+      width: 100%;
+      height: auto;
+      max-height: 160px; 
+      object-fit: contain;
+      display: block;
+    }
+    .project-img {
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 9px;
+      padding: 10px;
+    }
+
+    /* Padding для текста */
+    @media (max-width: 600px) {
+      .section-content {
+        padding: 0 10px;
+      }
+    }
+    @media (max-width: 600px) {
+      .footer-logo img {
+        height: 60px !important;
+        max-width: 90px !important;
+        margin-bottom: 4px;
+      }
+      .footer-inner {
+        gap: 8px;
+        min-height: unset;
+        padding-bottom: 10px;
+      }
+      .footer-info {
+        font-size: 0.97em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -527,6 +615,7 @@
       <img src="logo_icon.png" alt="Logo" class="logo-icon" />
       TensorLabs
     </a>
+    <button class="burger" onclick="toggleMenu()">☰</button>
     <nav>
       <a href="en.html">Home</a>
       <a href="en_projects.html">Projects</a>
@@ -713,5 +802,11 @@
       </div>
     </div>
   </div>
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('nav');
+      nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
+    }
+  </script>
 </body>
 </html>
