@@ -558,7 +558,19 @@
     .project-img img {
       width: 100%;
       height: auto;
+      max-height: 160px; /* или другое разумное ограничение */
       object-fit: contain;
+      display: block;
+    }
+    .project-img {
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 9px;
+      padding: 10px;
     }
 
     /* Padding для текста */
@@ -634,7 +646,7 @@
       <div class="projects-row">
         <div class="project-card">
           <div class="project-img">
-            <img src="Face_project.png" alt="Фото лица пример" style="width:150%;height:150%;object-fit:contain;">
+            <img src="Face_project.png" alt="Фото лица пример">
           </div>
           <div class="project-title">Определение ИБС по фотографии лица</div>
           <div class="project-desc">
@@ -644,7 +656,7 @@
         </div>
         <div class="project-card">
           <div class="project-img">
-            <img src="Fundus_photo.png" style="width:150%;height:125%;object-fit:contain;">
+            <img src="Fundus_photo.png" alt="Фото глазного дна">
           </div>
           <div class="project-title">Определение ИБС по фото глазного дна</div>
           <div class="project-desc">
@@ -654,7 +666,7 @@
         </div>
         <div class="project-card">
           <div class="project-img">
-            <img src="AI_asist.png" style="width:150%;height:150%;object-fit:contain;">
+            <img src="AI_asist.png" alt="AI_asist">
           </div>
           <div class="project-title">Медицинский девайс будущего</div>
           <div class="project-desc">
