@@ -5,6 +5,7 @@
   <title>TensorLabs — ИИ для здравоохранения</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    /* ... [Сохраняем все переменные и основные стили без изменений] ... */
     :root {
       --main-bg: #f7f8fb;
       --header-bg: #fff;
@@ -505,7 +506,69 @@
       .header-btn {margin-left: 6px;}
       .projects-row {gap: 11px;}
     }
-    
+    /* Новое: бургер-меню */
+    .burger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--accent2);
+    }
+
+    /* Обновим навигацию */
+    nav {
+      display: flex;
+      gap: 26px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: white;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        z-index: 100;
+      }
+      .burger {
+        display: block;
+      }
+    }
+
+    /* Hero адаптация */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        gap: 32px;
+        padding: 28px 4vw;
+        text-align: center;
+      }
+      .hero-content {
+        text-align: center;
+      }
+    }
+
+    /* Изображения проектов */
+    .project-img img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* Padding для текста */
+    @media (max-width: 600px) {
+      .section-content {
+        padding: 0 10px;
+      }
+    }
+
+    /* Остальные адаптивные стили уже в коде */
   </style>
 </head>
 <body>
@@ -514,6 +577,7 @@
       <img src="logo_icon.png" alt="Логотип" class="logo-icon" />
       TensorLabs
     </a>
+    <button class="burger" onclick="toggleMenu()">☰</button>
     <nav>
       <a href="index.html">Главная</a>
       <a href="projects.html">Проекты</a>
@@ -526,9 +590,10 @@
         <span class="lang-divider">|</span>
         <a href="en.html" class="lang-link">EN</a>
     </div>
-    <!--<button class="header-btn">Связаться</button>1 -->
   </header>
 
+  <!-- Остальная часть страницы остаётся без изменений -->
+  <!-- hero, sections, футер и т.д. -->
   <main>
     <section class="hero">
       <div class="hero-content">
@@ -717,5 +782,11 @@
       </div>
     </div>
   </div>
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('nav');
+      nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
+    }
+  </script>
 </body>
 </html>
