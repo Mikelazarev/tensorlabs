@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tensorlabs.ru/sitemap.xml
